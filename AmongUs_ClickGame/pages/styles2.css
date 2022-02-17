@@ -1,0 +1,61 @@
+body,
+html{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-image: url(/images/background.gif);
+    background-size: cover;
+    background-position: center;
+    image-rendering: optimizeSpeed;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: bicubic;
+    cursor: crosshair;
+    overflow: hidden;
+}
+
+h1{
+    font-family: 'Poor Story', cursive;
+    color: seagreen;
+    text-shadow: 2px 2px 5px #52057B;
+    text-decoration-color: #892CDC;
+    text-align: right;
+}
+.red {
+    position: absolute;
+    background-image: url(/images/red.png);
+    width: 100px;
+    height: 122px;
+    top:0px;
+    left:0px;
+    /*
+    transition: top 2s, left 2s;
+    transition-timing-function: linear; */
+    /* background-repeat: no-repeat; */
+  }
+
+.shot {
+    background-position: center;
+    background-image: url(/images/bam.png);
+  }
+
+.green {
+    position: absolute;
+    background-image: url(/images/green.png);
+    width: 100px;
+    height: 122px;
+    top:100px;
+    left:0;
+}
+
+.cyan {
+    position: absolute;
+    background-image: url(/images/cyan.png);
+    width: 100px;
+    height: 122px;
+    top:200px;
+    left:0;
+}
+

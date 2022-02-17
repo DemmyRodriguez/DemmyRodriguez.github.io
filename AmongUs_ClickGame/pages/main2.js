@@ -122,7 +122,12 @@ function turn(){
 }
 //create gamefunction
 function theGame(){
-    document.getElementById("player").innerHTML = "Player 1's Score:"
+    var player1= parent.document.URL.substring(parent.document.URL.indexOf('player1='), parent.document.URL.length)
+    player1= player1.substring((player1.indexOf('player1=')+8),player1.indexOf('?player2'))
+    var player2= parent.document.URL.substring(parent.document.URL.indexOf('player2='), parent.document.URL.length)
+    player2=player2.substring(8,player2.length)
+    document.getElementById("player").innerHTML = player1+"'s Score:"
+
     turn();
     setTimeout(afterTurn1,30500)
     setTimeout(startTurn2,40500)
@@ -131,11 +136,11 @@ function theGame(){
 
     function afterTurn1(){
         player1Score=document.getElementById("score").innerHTML;
-        alert("Player 2 will start in 10 seconds")
+        alert(player2 + "'s turn will start in 10 seconds")
         window.score1= parseInt(player1Score);
     }
     function startTurn2(){
-        document.getElementById("player").innerHTML = "Player 2's Score:"
+        document.getElementById("player").innerHTML = player2+"'s Score:"
         document.getElementById("timeLeft").innerHTML="30";
         turn();
     }
@@ -145,10 +150,11 @@ function theGame(){
     }
     function Winner(){
         if(window.score1>window.score2){
-            alert("Player 1 wins! Your score is "+ window.score1 +" which is greater than "+ window.score2 )
+            alert( player1 + " wins! Your score is "+ window.score1 +" which is greater than "+ window.score2 )
         }else if (window.score2>window.score1){
-            alert("Player 2 wins! Your score is "+ window.score2 +" which is greater than "+ window.score1 )
+            alert(player2 + " wins! Your score is "+ window.score2 +" which is greater than "+ window.score1 )
         }
+        alert("It's a tie! Congrats to you both!")
     }
     
 }

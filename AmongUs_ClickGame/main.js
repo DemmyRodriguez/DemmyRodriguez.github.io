@@ -1,19 +1,10 @@
-// const startBut = document.getElementById("startBut");
 
-// startBut.addEventListener("click", Start);
-
-// function Start(){
-//     console.log("Started");
-//     mixBut.removeEventListener("click", Start);
-// }
-
-myFunction = function() {
-    let first = document.getElementById("fname").value;
-    let second = document.getElementById("sname").value;
-    
-    document.getElementById("here").innerHTML = first+" "+second;
+function startBut(){
+    var player1= document.getElementById("fname").value;
+    var player2=document.getElementById("sname").value;
+    window.location.href='pages/game.html?player1='+player1+'?player2='+player2
 }
 
-// startBut.addEventListener('click', () => {
-//     window.open(pages/game.html, '_top')
-// });
+window.onload=function (){
+    document.getElementById("startBut").onclick = function() {startBut()}
+}

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Per Scholas</title>
     <link rel="stylesheet" href="styles.css" />
 </head>
@@ -14,14 +16,16 @@
     
 
     <div class="flex-container">
-        <div>Player 1 Name: <br> <input type="text" name="firstname" id="fname"></div>
-        <div>Player 2 Name: <br> <input type="text" name="secondname" id="sname"></div>
+        <div>Player 1 Name: <br> <input type="text" placeholder="Name Here" id="fname"></div>
+        <div>Player 2 Name: <br> <input type="text" placeholder="Name Here" id="sname"></div>
     </div>
+
     <br>
     <br>
     <br>
     <div class="center">
-        <input type="button"  id="startBut" value="Start" onclick="location.href='pages/game.html'">
+        <!-- <input type="button"  id="startBut" value="Start" onclick="location.href='pages/game.html?player1=${fname.value}?player2=Danny'"> -->
+        <input type="button"  id="startBut" value="Start">
         <div id="here"></div>
     </div>
 </body>

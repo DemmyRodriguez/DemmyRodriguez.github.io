@@ -3,7 +3,7 @@ html{
     width: 100%;
     height: 100%;
     margin: 0;
-    background-image: url(/images/background.gif);
+    background-image: url(/AmongUs_ClickGame/images/background.gif);
     background-size: cover;
     background-position: center;
     image-rendering: optimizeSpeed;
@@ -25,7 +25,7 @@ h1{
 }
 .red {
     position: absolute;
-    background-image: url(/images/red.png);
+    background-image: url(/AmongUs_ClickGame/images/red.png);
     width: 100px;
     height: 122px;
     top:0px;
@@ -38,12 +38,12 @@ h1{
 
 .shot {
     background-position: center;
-    background-image: url(/images/bam.png);
+    background-image: url(/AmongUs_ClickGame/images/bam.png);
   }
 
 .green {
     position: absolute;
-    background-image: url(/images/green.png);
+    background-image: url(/AmongUs_ClickGame/images/green.png);
     width: 100px;
     height: 122px;
     top:100px;
@@ -52,7 +52,7 @@ h1{
 
 .cyan {
     position: absolute;
-    background-image: url(/images/cyan.png);
+    background-image: url(/AmongUs_ClickGame/images/cyan.png);
     width: 100px;
     height: 122px;
     top:200px;

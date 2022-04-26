@@ -1,3 +1,130 @@
 .App {
+  height: 100vh;
+  width: 100vw;
   text-align: center;
+  color: gold;
+  background: url('./images/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+/* Navbar CSS */
+.navbar {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 10%;
+  background-color: #07121a;
+  text-transform: uppercase;
+}
+.navbar-logo{
+  display: flex;
+  flex: 1;
+  justify-content: left;
+  margin: 30px;
+}
+.navbar-item {
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+  color: inherit;
+  outline: none;
+}
+
+/* Home CSS */
+.yolo{
+  display: flex;
+  margin-top: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+  background: #07121a;
+  height: 70%;
+  width: 80%;
+}
+
+/* Main SummonerInfo DIV CSS */
+.summonerInfo{
+  margin: 05%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+  background: #07121a;
+  height: auto;
+  width: auto;
+}
+.summonerInfo-Obtained{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+ /* Search Summoner Input and Button CSS */
+.searchTextButton{
+  display: flex;
+  flex-direction: row;
+}
+#searchSummoner{
+  text-align: center;
+  width: 200px;
+  height: 100px;
+  margin-top: 30px;
+}
+#searchSummonerButton{
+  text-align: center;
+  width: 20%;
+  height: 105px;
+  margin-top: 30px;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  font-size: 12px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+#searchSummonerButton:hover{
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+}
+
+
+/* Participants Box Info */
+.participants-div{
+  width: 500px;
+  height: auto;
+  border: 2px solid navy;
+  border-radius: 20px;
+  margin: 20px;
+  background-color: #0b2c44;
+}
+
+.article {
+  color: #fff;
+  margin-bottom: 40px;
+  padding: 20px 20px 50px 20px;
+  background-color: #000;
+}
+
+.article-body {
+}
+
+/* Footer CSS */
+.footer {
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  height: 05%;
+  background-color: #07121a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }

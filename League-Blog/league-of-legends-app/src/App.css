@@ -22,7 +22,7 @@
   display: flex;
   flex: 1;
   justify-content: left;
-  margin: 30px;
+  margin: auto;
 }
 .navbar-item {
   display: flex;
@@ -33,15 +33,20 @@
 }
 
 /* Home CSS */
-.yolo{
+.homeDiv{
   display: flex;
   margin-top: 30px;
   margin-right: auto;
   margin-left: auto;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   border: 2px solid white;
-  background: #07121a;
+  background-color: #07121a;
+  background-image: url(./images//leagueTransparent.png);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 37vh;
   height: 70%;
   width: 80%;
 }
@@ -50,7 +55,7 @@
 .summonerInfo{
   margin: 05%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   border: 2px solid white;
@@ -64,20 +69,53 @@
   flex-direction: column;
 }
 
+/* Error Image, Try Again Button, WrongSpellingDiv CSS */
+.errorImage{
+  background: url(./images/sorry.gif);
+}
+.wrongSpellingDiv{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 50px;
+}
+#tryAgainButton{
+  text-align: center;
+  width: 30%;
+  height: 105px;
+  margin-top: 30px;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  font-size: 12px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+#tryAgainButton:hover{
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+}
+
  /* Search Summoner Input and Button CSS */
 .searchTextButton{
   display: flex;
+  margin-bottom: 10%;
+  align-items: center;
+  justify-content: center;
   flex-direction: row;
 }
 #searchSummoner{
   text-align: center;
-  width: 200px;
+  width: 300px;
   height: 100px;
   margin-top: 30px;
 }
 #searchSummonerButton{
   text-align: center;
-  width: 20%;
+  width: 30%;
   height: 105px;
   margin-top: 30px;
   display: inline-block;

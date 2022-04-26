@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -19,20 +18,16 @@ function Home () {
             console.log(error);
         })
     }
-    // const [gameList, setGameList] = useState([]);
-    // const [playerInfo, setPlayerInfo] = useState({});
 
     return(
-        <div className='yolo'>
-            {/* <h1>Hello</h1> */}
-            <h2 className="yolo"> Become A Better League Summoner </h2>
-         <section className='searchTextButton'>
+        <div className='homeDiv'>
+            <h2> Become A Better League Summoner </h2>
+         <div className='searchTextButton'>
             <input id='searchSummoner' type="text" placeholder='Enter Summoner Name' />
                 
                 {/* need to create getPlayerGames function above return statement */}
-        </section>
         <button id='searchSummonerButton' onClick={send}> Click for Info </button>
-
+        </div>
         <div className="footer" />
         </div>
     )

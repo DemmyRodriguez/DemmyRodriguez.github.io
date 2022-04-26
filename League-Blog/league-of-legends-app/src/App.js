@@ -10,9 +10,8 @@ function App() {
   return (
     <div className="App">
       <nav className="navbar">
-          <h1 className='navbar-logo'>League It Out</h1> 
+          <h1 className='navbar-logo'>League It Out</h1>
           <NavLink to="/" className='navbar-item'> Home </NavLink>
-          <NavLink to="/summonerInfo" className='navbar-item'> Summoner Info </NavLink>
           <NavLink to="/articles" className='navbar-item'> Articles </NavLink>
       </nav>    
 

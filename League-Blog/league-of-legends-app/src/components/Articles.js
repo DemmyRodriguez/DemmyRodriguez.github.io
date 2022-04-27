@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { Link } from 'react-router-dom';
 
 function Articles() {
@@ -19,7 +19,7 @@ function Articles() {
         createArticle(inputs.title, inputs.body, inputs.author)
     }
 
-    const getArticles = () => {
+    const getArticles = useCallback(() => {
         axios.get(`${API_URL}/articles`, {})
             .then(function (response) {
                 setArticles(response.data);
@@ -27,7 +27,7 @@ function Articles() {
             }).catch(function (error) {
                 console.log(error);
             })
-    }
+    }, [API_URL]);
 
     function createArticle(title, articleBody, author) {
         axios.post(`${API_URL}/articles`, { title: title, body: articleBody, author: author })
@@ -53,7 +53,7 @@ function Articles() {
 
     useEffect(() => {
         getArticles();
-    }, [])
+    }, [getArticles])
 
 
     return (

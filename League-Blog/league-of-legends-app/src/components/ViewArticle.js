@@ -55,7 +55,7 @@ function ViewArticle() {
             }).catch(function (error) {
                 console.log(error);
             })
-    }, [id]);
+    }, [id, API_URL]);
 
 
     useEffect(() => {

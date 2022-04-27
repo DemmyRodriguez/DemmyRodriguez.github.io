@@ -3,7 +3,7 @@ import { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router-dom";
 
 function ViewArticle() {
-
+    const API_URL = process.env.API_URL || 'http://localhost:4000'
     const [article, setArticle] = useState([])
     const [inputs, setInputs] = useState({});
     const { id } = useParams();
@@ -21,7 +21,7 @@ function ViewArticle() {
     }
 
     function updateArticle(title, articleBody, author) {
-        axios.put("http://localhost:4000/articles/" + id, { title: title, body: articleBody, author: author })
+        axios.put(`${API_URL}/articles` + id, { title: title, body: articleBody, author: author })
             .then(function (response) {
                 console.log(response.data)
                 getArticle();
@@ -32,7 +32,7 @@ function ViewArticle() {
 
     const deleteArticle = (id) => {
         console.log("Delete article: ", id)
-        axios.delete("http://localhost:4000/articles/" + id, {})
+        axios.delete(`${API_URL}/articles` + id, {})
             .then(function (response) {
                 console.log(response.data)
                 getArticle();
@@ -43,7 +43,7 @@ function ViewArticle() {
 
 
     const getArticle = useCallback(() => {
-        axios.get("http://localhost:4000/articles/" + id, {})
+        axios.get(`${API_URL}/articles/` + id, {})
             .then(function (response) {
                 console.log(response.data)
                 setArticle(response.data)
@@ -58,7 +58,7 @@ function ViewArticle() {
     }, [id]);
 
 
-    useEffect((getArticle) => {
+    useEffect(() => {
         getArticle();
     }, [getArticle])
 
@@ -75,7 +75,7 @@ function ViewArticle() {
                 <div className="article-body">{article.body}</div>
                 <span>Written by: {article.author}</span>
                 <div className="crudButtons">
-                    <button id='deleteButton' onClick={() => deleteArticle(article.id)}> Delete </button>
+                    <button id='deleteButton' onClick={() => deleteArticle(article._id)}> Delete </button>
                 </div>
             </div>
 

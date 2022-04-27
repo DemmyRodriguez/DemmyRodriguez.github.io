@@ -1,34 +1,35 @@
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-function Home () {
-    const navigate= useNavigate();
-    function send(){
-        axios.get("http://localhost:4000/past3Games", { params: { username : document.getElementById('searchSummoner').value}})
-        .then(function (response) {
-            console.log(response.data)
-            //https://stackoverflow.com/questions/68911432/how-to-pass-parameters-with-react-router-dom-version-6-usenavigate-and-typescrip
-            navigate('/summonerInfo',{
-                state:{
-                    gameList: response.data.matches,
-                    playerInfo: response.data.playerInfo
-                }
-            });
-        }).catch(function (error) {
-            console.log(error);
-        })
+function Home() {
+    const API_URL = process.env.API_URL || 'http://localhost:4000'
+    const navigate = useNavigate();
+    function send() {
+        axios.get(`${API_URL}/past3Games`, { params: { username: document.getElementById('searchSummoner').value } })
+            .then(function (response) {
+                console.log(response.data)
+                //https://stackoverflow.com/questions/68911432/how-to-pass-parameters-with-react-router-dom-version-6-usenavigate-and-typescrip
+                navigate('/summonerInfo', {
+                    state: {
+                        gameList: response.data.matches,
+                        playerInfo: response.data.playerInfo
+                    }
+                });
+            }).catch(function (error) {
+                console.log(error);
+            })
     }
 
-    return(
+    return (
         <div className='homeDiv'>
             <h2> Become A Better League Summoner </h2>
-         <div className='searchTextButton'>
-            <input id='searchSummoner' type="text" placeholder='Enter Summoner Name' />
-                
+            <div className='searchTextButton'>
+                <input id='searchSummoner' type="text" placeholder='Enter Summoner Name' />
+
                 {/* need to create getPlayerGames function above return statement */}
-        <button id='searchSummonerButton' onClick={send}> Click for Info </button>
-        </div>
-        <div className="footer" />
+                <button id='searchSummonerButton' onClick={send}> Click for Info </button>
+            </div>
+            <div className="footer" />
         </div>
     )
 }

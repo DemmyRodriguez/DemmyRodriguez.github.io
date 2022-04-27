@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 
 function Articles() {
-
+    const API_URL = process.env.API_URL || 'http://localhost:4000'
     const [articles, setArticles] = useState([])
     const [inputs, setInputs] = useState({});
 
@@ -20,7 +20,7 @@ function Articles() {
     }
 
     const getArticles = () => {
-        axios.get("http://localhost:4000/articles", {})
+        axios.get(`${API_URL}/articles`, {})
             .then(function (response) {
                 setArticles(response.data);
             }).catch(function (error) {
@@ -29,7 +29,7 @@ function Articles() {
     }
 
     function createArticle(title, articleBody, author) {
-        axios.post("http://localhost:4000/articles", { title: title, body: articleBody, author: author })
+        axios.post(`${API_URL}/articles`, { title: title, body: articleBody, author: author })
             .then(function (response) {
                 console.log(response.data)
                 getArticles();
@@ -41,7 +41,7 @@ function Articles() {
 
     const deleteArticle = (id) => {
         console.log("Delete article: ", id)
-        axios.delete("http://localhost:4000/articles/" + id, {})
+        axios.delete(`${API_URL}/articles` + id, {})
             .then(function (response) {
                 console.log(response.data)
                 getArticles();
@@ -63,15 +63,15 @@ function Articles() {
             </div>
             <br />
             {articles.map((article) =>
-                <div className="article" key={article.id}>
+                <div className="article" key={article._id}>
                     <h1>{article.title}</h1>
                     <div className="article-list-body">{article.body}</div>
                     <span>Written by: {article.author}</span>
                     <div className="crudButtons">
-                        <Link to={`/articles/${article.id}`}>
+                        <Link to={`/articles/${article._id}`}>
                             <button id='editButton'> View </button>
                         </Link>
-                        <button id='deleteButton' onClick={() => deleteArticle(article.id)}> Delete </button>
+                        <button id='deleteButton' onClick={() => deleteArticle(article._id)}> Delete </button>
                     </div>
                 </div>
             )}

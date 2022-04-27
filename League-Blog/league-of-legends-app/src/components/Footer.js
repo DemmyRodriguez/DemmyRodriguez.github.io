@@ -1,13 +1,10 @@
 function Footer() {
     return (
         <>
-            <div className="social-footer">
-                <ul>
-                    <li> <a href="https://github.com/DemmyRodriguez">My Github</a> </li>
-                </ul>
-            </div>
             <div className="footer">
-                <h6>© 2022 Demmy's Projects  |  All Rights Reserved</h6>
+            <a className="linkedInLink" href="https://www.linkedin.com/in/demmy-rodriguez"></a>
+            <h6>© 2022 Demmy's Projects  |  All Rights Reserved</h6>  
+            <a className="githubLink" href="https://github.com/DemmyRodriguez"></a>
             </div>
         </>
     )

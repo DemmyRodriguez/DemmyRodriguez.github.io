@@ -80,9 +80,10 @@ function Articles() {
             )}
 
             <form onSubmit={handleSubmit} className="create-article-form">
+                <h1>CREATE A NEW ARTICLE</h1>
                 <div>
-                    <label>Enter your article Title:
-                        <input
+                    <label>Article Title:
+                        <input placeholder="Enter Article Title"
                             type="text"
                             name="title"
                             value={inputs.title || ""}
@@ -91,8 +92,8 @@ function Articles() {
                     </label>
                 </div>
                 <div>
-                    <label>Enter your article author:
-                        <input
+                    <label>Article Author: 
+                        <input placeholder="Enter Article Author"
                             type="text"
                             name="author"
                             value={inputs.author || ""}
@@ -101,12 +102,14 @@ function Articles() {
                     </label>
                 </div>
                 <div>
-                    <label>Enter your article body:
-                        <textarea
+                    <label>Article Body:
+                        <div>
+                        <textarea placeholder="Write something creative, fun, or helpful!"
                             name="body"
                             value={inputs.body || ""}
                             onChange={handleChange}
                         />
+                        </div>
                     </label>
                 </div>
 

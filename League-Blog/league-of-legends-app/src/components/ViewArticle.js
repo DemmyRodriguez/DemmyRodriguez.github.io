@@ -83,7 +83,7 @@ function ViewArticle() {
 
             <form onSubmit={handleSubmit} className="create-article-form">
                 <div>
-                    <label>Enter your article Title:
+                    <label>Enter Your Article Title:
                         <input
                             type="text"
                             name="title"
@@ -93,7 +93,7 @@ function ViewArticle() {
                     </label>
                 </div>
                 <div>
-                    <label>Enter your article author:
+                    <label>Enter Your Article Author:
                         <input
                             type="text"
                             name="author"
@@ -103,7 +103,8 @@ function ViewArticle() {
                     </label>
                 </div>
                 <div>
-                    <label>Enter your article body:
+                    <label>Enter Your Article Body:
+                        <br />
                         <textarea
                             name="body"
                             value={inputs.body || ""}

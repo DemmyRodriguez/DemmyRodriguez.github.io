@@ -1,87 +1,117 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 
 function Articles() {
-    const articles = [
-        {
-            id: 0,
-            title: "My first article",
-            body: "My article is the best article in the world My article is the best article in the world My article is the best article in the world My article is the best article in the world",
-            author: "Demmy",
-            createdAt: '2022-04-25T20:42:39.413Z',
-        },
-        {
-            id: 1,
-            title: "My second article",
-            body: "My article is the best article in the world",
-            author: "Denilson",
-            createdAt: '2022-04-25T20:42:39.413Z',
-        },
-        {
-            id: 2,
-            title: "My third article",
-            body: "My article is the best article in the world",
-            author: "Ousmane",
-            createdAt: '2022-04-25T20:42:39.413Z',
-        },
-    ]
-    const newArticle = () => {
-        createArticle("My new one", "my lipgloss is cool", "button")
+
+    const [articles, setArticles] = useState([])
+    const [inputs, setInputs] = useState({});
+
+    const handleChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setInputs(values => ({ ...values, [name]: value }))
     }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(inputs);
+        createArticle(inputs.title, inputs.body, inputs.author)
+    }
+
+    const getArticles = () => {
+        axios.get("http://localhost:4000/articles", {})
+            .then(function (response) {
+                setArticles(response.data);
+            }).catch(function (error) {
+                console.log(error);
+            })
+    }
+
+    function createArticle(title, articleBody, author) {
+        axios.post("http://localhost:4000/articles", { title: title, body: articleBody, author: author })
+            .then(function (response) {
+                console.log(response.data)
+                getArticles();
+                setInputs({});
+            }).catch(function (error) {
+                console.log(error);
+            })
+    }
+
+    const deleteArticle = (id) => {
+        console.log("Delete article: ", id)
+        axios.delete("http://localhost:4000/articles/" + id, {})
+            .then(function (response) {
+                console.log(response.data)
+                getArticles();
+            }).catch(function (error) {
+                console.log(error);
+            })
+    }
+
+    useEffect(() => {
+        getArticles();
+    }, [])
 
 
     return (
         <div className="articles">
-            <h1> PLACEHOLDER TEXT </h1>
+            <div className="backgroundNewsDiv">
+                <h1> League It Out News </h1>
+                <p> Never miss out on important information, be informed by fellow leaguers or create an article yourself to help out others too! </p>
+            </div>
+            <br />
             {articles.map((article) =>
-                <div className="article">
+                <div className="article" key={article.id}>
                     <h1>{article.title}</h1>
-                    <div className="article-body">{article.body}</div>
+                    <div className="article-list-body">{article.body}</div>
                     <span>Written by: {article.author}</span>
+                    <div className="crudButtons">
+                        <Link to={`/articles/${article.id}`}>
+                            <button id='editButton'> View </button>
+                        </Link>
+                        <button id='deleteButton' onClick={() => deleteArticle(article.id)}> Delete </button>
+                    </div>
                 </div>
             )}
 
-            <button onClick={newArticle}>Create Article</button>
+            <form onSubmit={handleSubmit} className="create-article-form">
+                <div>
+                    <label>Enter your article Title:
+                        <input
+                            type="text"
+                            name="title"
+                            value={inputs.title || ""}
+                            onChange={handleChange}
+                        />
+                    </label>
+                </div>
+                <div>
+                    <label>Enter your article author:
+                        <input
+                            type="text"
+                            name="author"
+                            value={inputs.author || ""}
+                            onChange={handleChange}
+                        />
+                    </label>
+                </div>
+                <div>
+                    <label>Enter your article body:
+                        <textarea
+                            name="body"
+                            value={inputs.body || ""}
+                            onChange={handleChange}
+                        />
+                    </label>
+                </div>
+
+                <button type="submit" id='createButton'>Create Article</button>
+
+            </form>
         </div>
     )
-}
-
-const articles = [];
-
-function getArticles() {
-    const articles = [];
-    
-
-    return articles
-}
-
-function getArticle(id) {
-    axios.get("http://localhost:4000/articles/"+id, {})
-    .then(function (response) {
-        console.log(response.data)
-        return response.data
-    }).catch(function (error) {
-        console.log(error);
-    })
-}
-
-function createArticle(title, body, author) {
-    axios.post("http://localhost:4000/articles", { body: { title: title, body: body, author: author } })
-        .then(function (response) {
-            console.log(response.data)
-        }).catch(function (error) {
-            console.log(error);
-        })
-}
-
-function deleteArticle(id) {
-    articles.splice(id, 1)
-}
-
-function updateArticle(id, title, body, author) {
-    articles[id].title = title;
-    articles[id].body = body;
-    articles[id].author = author;
 }
 
 export default Articles;

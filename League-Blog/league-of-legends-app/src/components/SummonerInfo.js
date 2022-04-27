@@ -34,6 +34,7 @@ function SummonerInfo() {
                     <h2>Summoner Level: {playerInfo.summonerLevel}</h2>
                     <img width="200" height="200" src={`http://ddragon.leagueoflegends.com/cdn/12.7.1/img/profileicon/${playerInfo.profileIconId}.png`} alt="Summoner Profile Icon" />
                 </div>
+                
                 </>
                 :
                 <>
@@ -48,6 +49,7 @@ function SummonerInfo() {
                 </div>
                 </>
             }
+            <div className="participants-container">
             {
                 gameList.length !== 0 ? 
                 <>
@@ -67,6 +69,8 @@ function SummonerInfo() {
                         : 
                         <> </>
             }
+            </div>
+            
         
         <div className="footer" />
         </div>

@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "nodemon proxyServer.js"
+    "start": "nodemon server.js"
   },
   "dependencies": {
     "axios": "^0.26.1",

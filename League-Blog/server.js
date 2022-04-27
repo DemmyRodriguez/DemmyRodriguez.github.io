@@ -131,6 +131,6 @@ app.get('/past3Games', async (req, res) => {
     })
 });
 
-app.listen(4000, function () { //localhost will be 4000 instead of 3000
+app.listen(process.env.PORT || 4000, function () { //localhost will be 4000 instead of 3000
     console.log("Server started on port 4000");
 }); 

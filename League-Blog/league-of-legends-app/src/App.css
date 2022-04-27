@@ -18,6 +18,7 @@
   background-color: #07121a;
   text-transform: uppercase;
   box-shadow: 0 4px 6px 0 gold;
+  min-height: 100px;
 }
 
 .navbar-logo {
@@ -50,7 +51,7 @@
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: 37vh;
-  height: 70%;
+  min-height: 70vh;
   width: 80%;
 }
 

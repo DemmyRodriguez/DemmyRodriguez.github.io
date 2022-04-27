@@ -23,7 +23,7 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true }, 
         console.log("Errror!" + error)
     }
 })
-const API_KEY = "RGAPI-85779b4c-cd2f-42dc-9740-734726b92e9c";
+const API_KEY = process.env.RIOT_API_KEY || "RGAPI-85779b4c-cd2f-42dc-9740-734726b92e9c";
 const articles = [
     {
         id: 0,

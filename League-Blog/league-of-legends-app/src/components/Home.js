@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 
 function Home() {
     const API_URL = process.env.API_URL || 'http://localhost:4000'
+    const development = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
+    if (!development) API_URL = 'https://league-it-out.herokuapp.com';
     const navigate = useNavigate();
     function send() {
         axios.get(`${API_URL}/past3Games`, { params: { username: document.getElementById('searchSummoner').value } })

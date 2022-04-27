@@ -59,7 +59,7 @@ function ViewArticle() {
 
     useEffect(() => {
         getArticle();
-    }, [])
+    }, [getArticle])
 
 
     return (

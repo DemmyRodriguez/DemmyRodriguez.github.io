@@ -100,8 +100,8 @@ app.delete('/articles/:id', async (req, res) => {
 app.put('/articles/:id', async (req, res) => {
     const articleID = req.params['id']
     const { title, body, author } = req.body
-    updateArticle(articleID, title, body, author)
-    ArticleModel.findByIdAndUpdate(articleID, function (err, data) {
+    // updateArticle(articleID, title, body, author)
+    ArticleModel.findByIdAndUpdate(articleID, {title: title, body: body, author: author}, function (err, data) {
         if (err) {
             console.log(err);
         } else {

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router-dom";
 
 function ViewArticle() {
@@ -41,7 +41,8 @@ function ViewArticle() {
             })
     }
 
-    function getArticle() {
+
+    const getArticle = useCallback(() => {
         axios.get("http://localhost:4000/articles/" + id, {})
             .then(function (response) {
                 console.log(response.data)
@@ -54,10 +55,10 @@ function ViewArticle() {
             }).catch(function (error) {
                 console.log(error);
             })
-    }
+    }, [id]);
 
 
-    useEffect(() => {
+    useEffect((getArticle) => {
         getArticle();
     }, [getArticle])
 

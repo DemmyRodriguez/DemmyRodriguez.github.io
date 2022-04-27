@@ -3,7 +3,7 @@ import { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router-dom";
 
 function ViewArticle() {
-    const API_URL = process.env.API_URL || 'http://localhost:4000'
+    let API_URL = process.env.API_URL || 'http://localhost:4000'
     const development = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
     if (!development) API_URL = 'https://league-it-out.herokuapp.com';
     const [article, setArticle] = useState([])

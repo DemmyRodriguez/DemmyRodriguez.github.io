@@ -23,6 +23,7 @@ function Articles() {
         axios.get(`${API_URL}/articles`, {})
             .then(function (response) {
                 setArticles(response.data);
+                console.log(response.data)
             }).catch(function (error) {
                 console.log(error);
             })
@@ -41,7 +42,7 @@ function Articles() {
 
     const deleteArticle = (id) => {
         console.log("Delete article: ", id)
-        axios.delete(`${API_URL}/articles` + id, {})
+        axios.delete(`${API_URL}/articles/` + id, {})
             .then(function (response) {
                 console.log(response.data)
                 getArticles();

@@ -21,7 +21,7 @@ function ViewArticle() {
     }
 
     function updateArticle(title, articleBody, author) {
-        axios.put(`${API_URL}/articles` + id, { title: title, body: articleBody, author: author })
+        axios.put(`${API_URL}/articles/` + id, { title: title, body: articleBody, author: author })
             .then(function (response) {
                 console.log(response.data)
                 getArticle();
@@ -32,7 +32,7 @@ function ViewArticle() {
 
     const deleteArticle = (id) => {
         console.log("Delete article: ", id)
-        axios.delete(`${API_URL}/articles` + id, {})
+        axios.delete(`${API_URL}/articles/` + id, {})
             .then(function (response) {
                 console.log(response.data)
                 getArticle();
